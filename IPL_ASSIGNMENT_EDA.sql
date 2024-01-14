@@ -1,6 +1,12 @@
 SELECT DISTINCT striker from match_data; -- 637
 SELECT DISTINCT bowler from match_data; -- 537
 
+SELECT(
+(select count(DISTINCT striker) from match_data) 
++
+(select count(DISTINCT BOWLER) from match_data WHERE BOWLER NOT IN (SELECT DISTINCT(STRIKER) FROM MATCH_DATA))
+) AS TOTAL_PLAYERS; -- 694
+
 SELECT DISTINCT striker from match_data WHERE STRIKER IN (SELECT DISTINCT bowler from match_data); -- 446, Players who does both batting and bowling
 SELECT DISTINCT bowler from match_data WHERE bowler IN (SELECT DISTINCT striker from match_data); -- 446
  
