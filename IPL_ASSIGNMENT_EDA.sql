@@ -17,7 +17,7 @@ SELECT COUNT(DISTINCT STRIKER) as total_batsman FROM  match_data WHERE STRIKER N
 SELECT COUNT(DISTINCT bowler) as total_bowler FROM  match_data WHERE bowler NOT IN (SELECT DISTINCT striker FROM match_data) -- 57
 
 ## all rounders players
-SELECT COUNT(DISTINCT striker) as total_all_rounder from match_data WHERE STRIKER IN (SELECT DISTINCT bowler from match_data); -- 
+SELECT COUNT(DISTINCT striker) as total_all_rounder from match_data WHERE STRIKER IN (SELECT DISTINCT bowler from match_data); -- 446
 
 SELECT SUM(IPL.total_batsman) AS TOTAL_IPL_PLAYERS -- 694
 FROM
